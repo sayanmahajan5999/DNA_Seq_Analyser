@@ -1,6 +1,6 @@
 
 # DNA Sequence Analyzer
-# Author: Sayan Mahajan
+# written by Sayan Mahajan
 
 def count_nucleotides(dna):
     """Count A, T, G, and C nucleotides."""
