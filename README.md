@@ -2,8 +2,9 @@
 # DNA Sequence Analyzer
 # written by Sayan Mahajan
 
+# Count A, T, G, and C nucleotides
 def count_nucleotides(dna):
-    """Count A, T, G, and C nucleotides."""
+
     counts = {
         "A": dna.count("A"),
         "T": dna.count("T"),
@@ -12,15 +13,16 @@ def count_nucleotides(dna):
     }
     return counts
 
-
+# Calculate GC content percentage
 def calculate_gc_content(dna):
-    """Calculate GC content percentage."""
+    
     gc_count = dna.count("G") + dna.count("C")
     return (gc_count / len(dna)) * 100 if len(dna) > 0 else 0
 
 
+# Generate reverse complement of DNA sequence
 def reverse_complement(dna):
-    """Generate reverse complement of DNA sequence."""
+  
     complement = {
         "A": "T",
         "T": "A",
@@ -31,12 +33,12 @@ def reverse_complement(dna):
     rev_comp = "".join(complement[base] for base in reversed(dna))
     return rev_comp
 
-
+# Convert DNA sequence to RNA sequence
 def transcribe_dna_to_rna(dna):
-    """Convert DNA sequence to RNA sequence."""
+   
     return dna.replace("T", "U")
 
-
+# main function
 def main():
     print("-" * 40)
     print("      DNA SEQUENCE ANALYZER")
@@ -44,26 +46,26 @@ def main():
 
     dna = input("Enter a DNA sequence: ").upper()
 
-    # Validate sequence
+# Validate sequence
     valid_bases = {"A", "T", "G", "C"}
 
     if not all(base in valid_bases for base in dna):
         print("Error: DNA sequence contains invalid characters!")
         return
 
-    # Nucleotide counts
+# Nucleotide counts
     counts = count_nucleotides(dna)
 
-    # GC content
+# GC content
     gc_content = calculate_gc_content(dna)
 
-    # Reverse complement
+# Reverse complement
     rev_comp = reverse_complement(dna)
 
-    # RNA transcription
+# RNA transcription
     rna = transcribe_dna_to_rna(dna)
 
-    # Results
+# Results
     print("\n--- Analysis Results ---")
     print(f"Sequence Length : {len(dna)}")
     print(f"A Count         : {counts['A']}")
